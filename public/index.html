@@ -2,14 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="logo192.png" />
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Zetta&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- Compiled and minified JavaScript -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -25,19 +38,71 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <script>
+    $(document).ready(function () {
+    $('select').formSelect();
+    });
+    $(document).ready(function () {
+        $('select').material_select();
+      });
+    $(document).ready(function () {
+    $('.modal').modal();
+    });
+    $(".button-collapse").sideNav();
+    
+    </script>
+    <script type="text/javascript">
+      $(".button-collapse").sideNav();
+      $(document).ready(function () {
+          $('.collapsible').collapsible();
+        });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var elems = document.querySelectorAll('select');
+          var instances = M.FormSelect.init(elems, options);
+        });
+         $('.dropdown-trigger').dropdown();
+        
+
+    </script>
   </head>
-  <body>
+  <body id = "root">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    
+    
+   
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+
+    <script src="../node_modules/jquery/dist/jquery.slim.js"></script>
+    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function () {
+          $('select').formSelect();
+        });
+
+         $(document).ready(function () {
+            $('.modal').modal();
+          });
+           $(".button-collapse").sideNav();
+            
+    </script>
+    <script type="text/javascript">
+      $(".button-collapse").sideNav();
+      $(document).ready(function () {
+          $('.collapsible').collapsible();
+        });
+
+       $('.dropdown-trigger').dropdown();
+
+       
+        document.addEventListener('DOMContentLoaded', function () {
+          var elems = document.querySelectorAll('.datepicker');
+          var instances = M.Datepicker.init(elems, options);
+        });
+    </script>
   </body>
 </html>

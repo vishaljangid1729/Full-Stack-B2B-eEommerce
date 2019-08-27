@@ -1,33 +1,222 @@
-.App {
-  text-align: center;
+body{
+    scroll-behavior: smooth;
+}
+#family_quote{
+    color : #6C757D;
+    font-family : cursive;
+    text-align: center;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+#button_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+#side_box{
+    padding-top: 20%;
+    margin-top: 20%;
+}
+#trust{
+    margin-left: 30%;
+    font-family: cursive;
+    color: #6C757D;
+}
+#business{
+    color: #6C757D;
+    font-family: cursive;
+    text-align: center;
+    margin-top: 7%;
+
+
+}
+#contact_us{
+    
+    position: absolute;
+    right: 2%;
+    margin-top: 2%;
+    background-color: #2680EB;
+
+    
+}
+#contact_us:hover{
+    color: white;
+}
+#images_box{
+    background-color : #F8F8F8;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 3%;
+    padding-right: 0px;
+    padding-left: 0px;
+
+
+
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#our_detail{
+    margin: 0px;
+}
+#benefit_title{
+    color: #6C757D;
+    font-family: cursive;
+    margin-top: 5%;
+    margin-left: 2%;
 }
 
-.App-link {
-  color: #61dafb;
+.benefit_text{
+    text-align: center;
+    color: #6C757D;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.box{
+    box-shadow: 0px 5px 11px rgb(220,220,220);
+    margin-top: 5%;
+    padding: 2% 2% 2% 2%;
+    
+}
+/* .carousel {
+    width : 900 px;
+    height : 500 px;
+    margin : auto;
+} */
+
+#footer_box{
+    margin-top: 5%;
+   
+
+}
+.container-fluid{
+    padding-right: 0px;
+    padding-left: 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#message_box{
+    background-color: #F8F8F8;
+    margin-bottom: 2%;
 }
+#get_in{
+    text-align: center;
+    color: #6C757D;
+}
+#footer{
+    background-image : url('../src/images/footer_back.svg');
+    height : 80 vh;
+    background-position : bottom;
+    background-repeat : no-repeat;
+    background-position-x : left;
+
+
+}
+#submit{
+    float: right;
+    margin-bottom: 4%;
+    margin-right: 2%;
+    background-color : #2680EB;
+
+}
+#submit:hover{
+    color: white;
+}
+
+li{
+    display: inline-block;
+    margin: 2%;
+}
+.row{
+    margin-bottom: 0px;
+}
+.page-footer{
+    background-color: white;
+}
+#login{
+    background-color: transparent;
+    color: #2680EB;
+}
+#signup{
+    background-color : #2680EB;
+    margin-left: 2%;
+
+
+}
+#signup:hover{
+    color: white;
+}
+
+#slider{
+    margin-top: 2%;
+}
+#signup_box{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    
+    
+
+
+
+    
+}
+#modal1{
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 4%;
+    height: fit-content;
+    padding-bottom: 4%;
+    
+    border-radius: 10px;
+    width: 25rem;
+
+}
+#singnup_image{
+    margin-top: 4%;
+}
+.text_footer{
+    color: #2680EB;
+}
+
+#progess{
+    background-color: #2680EB;
+    width: 25%;
+}
+#first_box{
+    margin-bottom: 5%;
+}
+#third_comp{
+    margin-bottom: 5%;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    #for_mobile{
+        display: none;
+    }
+
+}
+
+#makeStyle{
+
+    padding: 1%;
+}
+#total_selling {
+
+margin : 1.9466666667rem 0 0.49rem 0;;
+
+
+
+}
+
+.chch:hover{
+    cursor: pointer;
+    color: #2680EB;
+}
+.sort_list:hover{
+    cursor: pointer;
+    
+}
+
+
+
+
+
