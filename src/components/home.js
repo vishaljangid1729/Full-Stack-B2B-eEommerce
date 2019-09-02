@@ -41,6 +41,7 @@ export class Home extends React.Component{
             subject: '',
             message: ''
         })
+        // alert("Message send successfully");
     
         
     }
@@ -70,16 +71,23 @@ export class Home extends React.Component{
 
                         <div id="side_box">
                             <h2 id="family_quote">Let's Build Our Family</h2>
-                            <div id="button_div">
-                                {/* <button type="button" className="btn waves-effect waves-light" id="login">Login</button> */}
+                            <div id="button_div" className = "row justify-content-around">
+                                <div className="col">
+                                    <a class="waves-effect waves-light btn modal-trigger grey white-text " href="#modal1">Login </a>
+                                    <Signin></Signin>
 
-                                <a class="btn waves-effect waves-dark blue-text white" href="#modal1">Login </a>
-                                <Signin></Signin>
+                                </div>
+                                <div className="col">
+                                    <Link to="/signup">
+                                        <button type="button" className="btn waves-effect waves-light blue white-text">Register</button>
 
-                                <Link to="/signup">
-                                    <button type="button" className="btn waves-effect waves-light blue white-text">Register</button>
+                                    </Link>
+                                </div>
+                            
 
-                                </Link>
+                                
+
+                                
 
 
                             </div>
