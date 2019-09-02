@@ -3,8 +3,41 @@ import { Foot } from './footer';
 import { Topform } from './form_top';
 
 
+
 export class First_comp extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            entity: '',
+            trade: '',
+            contact_name: '',
+            gstin: '',
+            phone: '',
+            email: '',
+            alt_no: '',
+            city: '',
+            pincode: '',
+            country: '',
+            state: '',
+            nature_business: [],
+            brands: []
+        }
+        
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSumbit = this.handleSumbit.bind(this);
+    }
+    handleChange(event){
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+    handleSumbit(event){
+        event.preventDefault();
+       
+        console.log(this.state);
+    }
     render(){
+        const {entity, trade, contact_name, gstin, phone, email, alt_no, city, pincode, country, state, nature_business, brands} = this.state;
         return(
             <div>
                 <Topform name = "Business Detail" complete = "25"></Topform>
@@ -13,59 +46,59 @@ export class First_comp extends React.Component{
                     
                     <div className="row">
                         <div className="col-sm-12" id = "first_box">
-                            <form action="">
+                            <form onSubmit = {this.handleSumbit}>
                                 <div className="form-row justify-content-around">
 
                                     <div class="input-field  form-group col-md-3">
-                                        <input id="entity" type="text" class="validate" />
+                                        <input id="entity" name = "entity" value = {entity} required onChange = {this.handleChange} type="text" class="validate" />
                                         <label for="entity">Legal Entity Name</label>
                                     </div>
 
                                     <div class="input-field  form-group col-md-3">
-                                        <input id="trade" type="text" class="validate" />
+                                        <input id="trade" value = {trade} onChange = {this.handleChange} name = "trade" required type="text" class="validate" />
                                         <label for="trade">Trade Name</label>
                                     </div>
                                     <div class="input-field  form-group col-md-3">
-                                        <input id="contact" type="text" class="validate" />
+                                        <input id="contact" value = {contact_name} onChange = {this.handleChange} name = "contact_name" required type="text" class="validate" />
                                         <label for="contact">Contact Name</label>
                                     </div>
                                     
                                 </div>
                                 <div className="form-row justify-content-around">
                                     <div class="input-field  form-group col-md-3">
-                                        <input id="gstin" type="text" class="validate" />
+                                        <input id="gstin" value = {gstin} onChange = {this.handleChange} name = "gstin" required type="text" class="validate" />
                                         <label for="gstin">GSTIN</label>
                                     </div>
 
                                     <div class="input-field  form-group col-md-3">
-                                        <input id="phone" type="tel" class="validate" />
+                                        <input id="phone" value = {phone} onChange = {this.handleChange} name = "phone"  type="tel" class="validate" />
                                         <label for="phone">Phone</label>
                                     </div>
 
                                     <div class="input-field  form-group col-md-3">
-                                        <input id="email" type="email" class="validate" />
+                                        <input id="email" value = {email} onChange = {this.handleChange} name = "email" required type="email" class="validate" />
                                         <label for="email">Email</label>
                                     </div>
                                     
                                 </div>
                                 <div className="form-row justify-content-around">
                                     <div class="input-field  form-group col-md-3">
-                                        <input id="alt_no" type="tel" class="validate" />
+                                        <input id="alt_no" value = {alt_no} onChange = {this.handleChange} name = "alt_no" required type="tel" class="validate" />
                                         <label for="alt_no">Alternate No.</label>
                                     </div>
                                     <div class="input-field  form-group col-md-3">
-                                        <input id="city" type="text" class="validate" />
+                                        <input id="city" name = "city" value ={city} onChange = {this.handleChange} required type="text" class="validate" />
                                         <label for="city">City</label>
                                     </div>  
                                     <div class="input-field  form-group col-md-3">
-                                        <input id="pincode" type="text" class="validate" />
+                                        <input id="pincode" value = {pincode} onChange = {this.handleChange} name = "pincode" required type="text" class="validate" />
                                         <label for="pincode">Pincode</label>
                                     </div>
 
                                 </div>
                                 <div className="form-row justify-content-around">
                                     <div class="input-field  form-group col-md-3">
-                                        <select>
+                                        <select name = "country" required value = {country} onChange = {this.handleChange} >
                                             <option value="" disabled selected>Choose your option</option>
                                             <option value="1">Option 1</option>
                                             <option value="2">Option 2</option>
@@ -74,7 +107,7 @@ export class First_comp extends React.Component{
                                         <label>Country</label>
                                     </div>
                                     <div class="input-field  form-group col-md-3">
-                                        <select>
+                                        <select name = "state" required value = {state} onChange = {this.handleChange}>
                                             <option value="" disabled selected>Choose your option</option>
                                             <option value="1">Option 1</option>
                                             <option value="2">Option 2</option>
@@ -83,7 +116,7 @@ export class First_comp extends React.Component{
                                         <label>State</label>
                                     </div>
                                     <div class="input-field form-group col-md-3">
-                                        <select multiple>
+                                        <select multiple name = "nature_business" required value = {nature_business} onChange = {this.handleChange}>
                                             <option value="" disabled selected>Choose your option</option>
                                             <option value="1">Option 1</option>
                                             <option value="2">Option 2</option>
@@ -96,14 +129,14 @@ export class First_comp extends React.Component{
                                 <div className="form-row justify-content-around">
                                     
                                     <div class="input-field  form-group col-md-8">
-                                        <input id="brands" type="text" class="validate" />
+                                        <input id="brands" type="text" value = {brands} onChange = {this.handleChange} name = "brands" required class="validate" />
                                         <label for="brands">Brands you are authorised to sell</label>
                                     </div>
                                     
                                     
                                 </div>
                                 <div className="form-row justify-content-end" id = "com_footer">
-                                    <button class="btn waves-effect waves-light right blue white-text" type="submit" name="action">Save & Continue
+                                    <button class="btn waves-effect waves-light right blue white-text" type="submit" >Save & Continue
                                     <i class="material-icons right">send</i>
                                     </button>
                                 </div>

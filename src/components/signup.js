@@ -5,7 +5,38 @@ import { Foot } from './footer';
 
 
 export class Signup extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            entity: '',
+            contact_name: '',
+            category: '',
+            country: '',
+            pincode: '',
+            state: '',
+            city: '',
+            email: '',
+            password: '', 
+            mobile: '',
+            gstin: ''
+        }
+        
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    handleChange(event){
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+    handleSubmit(event){
+        event.preventDefault();
+        console.log(this.state);
+
+    }
+
     render(){
+        const {entity, contact_name, category, country, pincode, state, city, email, password, mobile, gstin} = this.state;
         return(
             <div className="container-fluid">
                 <div className="row justify-content-center">
@@ -18,22 +49,22 @@ export class Signup extends React.Component{
                             <Signin></Signin>
                         </div>
                         
-                        <form>
+                        <form onSubmit = {this.handleSubmit}>
                             <div className="form-row">
                                 
                                 <div class="input-field  form-group col-md-6">
-                                    <input id="entity" type="text" class="validate"/>
+                                    <input id="entity" type="text" onChange = {this.handleChange} value = {entity}  name = "entity" required class="validate"/>
                                     <label for="entity">Legal Entity Name</label>
                                 </div>
                                 
                                 <div class="input-field  form-group col-md-6">
-                                    <input id="contact" type="text" class="validate" />
+                                    <input id="contact" type="text" onChange={this.handleChange} value= {contact_name} name = "contact_name" required class="validate" />
                                     <label for="contact">Contact Name</label>
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div class="input-field  form-group col-md-6">
-                                    <select>
+                                    <select name="category" required onChange={this.handleChange} value= {category} >
                                         <option value="" disabled selected>Choose your option</option>
                                         <option value="1">Option 1</option>
                                         <option value="2">Option 2</option>
@@ -42,7 +73,7 @@ export class Signup extends React.Component{
                                     <label>Category</label>
                                 </div>
                                 <div className="input-field  form-group col-md-6">
-                                    <select>
+                                    <select name="country" required onChange={this.handleChange} value= {country} >
                                         <option value="" disabled selected>Choose your option</option>
                                         <option value="1">Option 1</option>
                                         <option value="2">Option 2</option>
@@ -55,13 +86,13 @@ export class Signup extends React.Component{
                             <div className="form-row">
                                 
                                 <div class="input-field  form-group col-md-6">
-                                    <input id="pincode" type="text" class="validate" />
+                                    <input id="pincode" name="pincode" onChange={this.handleChange} value = {pincode} required type="text" class="validate" />
                                     <label for="pincode">Pincode</label>
                                 </div>
 
                                 
                                 <div className="input-field  form-group col-md-6">
-                                    <select>
+                                    <select name="state" required onChange={this.handleChange} value={state} >
                                         <option value="" disabled selected>Choose your option</option>
                                         <option value="1">Option 1</option>
                                         <option value="2">Option 2</option>
@@ -72,40 +103,38 @@ export class Signup extends React.Component{
                                 </div>
                             </div>
                             <div className="form-row">
-                                {/* <div className="form-group col-md-6"><label htmlFor="">City</label><input type="text" className="form-control" placeholder = "City" required /></div>
-                                <div className="form-group col-md-6"><label htmlFor="">Email ID</label><input type="email" className="form-control" placeholder = "Email ID" /></div> */}
+                               
                                 <div class="input-field  form-group col-md-6">
-                                    <input id="city" type="text" class="validate" />
+                                    <input id="city" type="text" name="city" required class="validate" onChange={this.handleChange} value= {city} />
                                     <label for="city">City</label>
                                 </div>
 
                                 <div class="input-field  form-group col-md-6">
-                                    <input id="email" type="email" class="validate" />
+                                    <input id="email" name="email" required type="email" class="validate" onChange={this.handleChange} value= {email} />
                                     <label for="email">Email ID</label>
                                 </div>
                             </div>
                             <div className="form-row">
                                 
                                 <div class="input-field  form-group col-md-6">
-                                    <input id="password" type="password" class="validate" />
+                                    <input id="password" type="password" name="password" required class="validate" onChange={this.handleChange} value= {password} />
                                     <label for="password">Password</label>
                                 </div>
 
                                 <div class="input-field  form-group col-md-6">
-                                    <input id="con_pass" type="password" class="validate" />
+                                    <input id="con_pass"  required type="password" class="validate" />
                                     <label for="con_pass">Confirm Password</label>
                                 </div>
                             </div>
                             <div className="form-row">
-                                {/* <div className="form-group col-md-6"><label htmlFor="">Mobile</label><input type="text" className="form-control" required placeholder = "Mobile" /></div>
-                                <div className="form-group col-md-6"><label htmlFor="">GSTIN</label><input type="text" className="form-control" required placeholder = "GSTIN" /></div> */}
+                                
                                 <div class="input-field  form-group col-md-6">
-                                    <input id="mobile" type="tel" class="validate" />
+                                    <input id="mobile" name="mobile" onChange={this.handleChange} value={mobile} required type="tel" class="validate" />
                                     <label for="mobile">Mobile</label>
                                 </div>
 
                                 <div class="input-field  form-group col-md-6">
-                                    <input id="gstin" type="text" class="validate" />
+                                    <input id="gstin" name="gstin" onChange={this.handleChange} value={gstin} required type="text" class="validate" />
                                     <label for="gstin">GSTIN</label>
                                 </div>
                             </div>
