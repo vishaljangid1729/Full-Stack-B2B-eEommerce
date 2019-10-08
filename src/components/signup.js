@@ -1,7 +1,7 @@
 import React from 'react';
 import { Signin } from './signin';
 import { Foot } from './footer';
-
+import axios from 'axios';
 
 
 export class Signup extends React.Component{
@@ -32,6 +32,7 @@ export class Signup extends React.Component{
     handleSubmit(event){
         event.preventDefault();
         console.log(this.state);
+        axios.post("http://localhost:5000/signup", this.state);
 
     }
 

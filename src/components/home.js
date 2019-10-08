@@ -55,9 +55,6 @@ export class Home extends React.Component{
 
         return(
             <div className="container-fluid">
-                
-
-
                 <div className='row'>
                     <div className="col-sm-12">
                         <button type="button" class="btn waves-effect waves-light hide-on-small-only" id="contact_us" onClick={contact} >Contact Us</button>
@@ -84,12 +81,6 @@ export class Home extends React.Component{
                                     </Link>
                                 </div>
                             
-
-                                
-
-                                
-
-
                             </div>
 
                         </div>
@@ -108,8 +99,6 @@ export class Home extends React.Component{
                         <Image></Image>
 
                     </div>
-
-
                 </div>
                 <div id="benefit_title">
                     <h1>Benefits of Business </h1>
