@@ -32,7 +32,7 @@ router.post('/', (req, res, next) =>{
     service: 'gmail',
     auth: {
       user: 'jangidvishal1999@gmail.com',
-      pass: 'vishal@1729'
+      pass: 'enter your password'
     }
   });
 
