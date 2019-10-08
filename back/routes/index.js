@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
   res.send(home)
   next();
 
-})
+});
 router.post('/', (req, res, next) =>{
     console.log(req.body);
   var transporter = nodemailer.createTransport({
@@ -55,7 +55,7 @@ router.post('/', (req, res, next) =>{
     else{
       console.log("Email sent: " + info.response);
     }
-  })
+  });
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
@@ -67,6 +67,6 @@ router.post('/', (req, res, next) =>{
   
 
     res.status(200).send();
-})
+});
 
 module.exports = router;
