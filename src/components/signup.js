@@ -39,6 +39,15 @@ export class Signup extends React.Component{
             this.setState({pincodeError: ""});
         }
 
+        if (this.state.mobile.match(/^[0-9]+$/) === null || this.state.mobile.length !== 10) {
+            this.setState({
+                mobileError: "Invalid mobile number"
+            });
+        }
+        else {
+            this.setState({ mobileError: "" });
+        }
+
     }
     handleChange(event){
         this.setState({
