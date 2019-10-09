@@ -32,7 +32,10 @@ export class Signup extends React.Component{
     handleSubmit(event){
         event.preventDefault();
         console.log(this.state);
-        axios.post("http://localhost:5000/signup", this.state);
+        axios.post("http://localhost:5000/signup", this.state)
+        .then(res => {console.log(res)});
+
+        
 
     }
 
