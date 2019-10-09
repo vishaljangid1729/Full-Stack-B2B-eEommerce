@@ -18,11 +18,27 @@ export class Signup extends React.Component{
             email: '',
             password: '', 
             mobile: '',
-            gstin: ''
+            gstin: '',
+            pincodeError: '',
+            passportError: '',
+            mobileError: '',
+            gstinError: ''
         }
         
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    validate(){
+        // pincode validation
+        if (this.state.pincode.match(/^[0-9]+$/) === null || this.state.pincode.length !==6){
+            this.setState({
+                pincodeError: "Invalid pincode"
+            });
+        }
+        else{
+            this.setState({pincodeError: ""});
+        }
+
     }
     handleChange(event){
         this.setState({
@@ -30,6 +46,7 @@ export class Signup extends React.Component{
         })
     }
     handleSubmit(event){
+        this.validate();
         event.preventDefault();
         console.log(this.state);
         axios.post("http://localhost:5000/signup", this.state)
@@ -92,6 +109,7 @@ export class Signup extends React.Component{
                                 <div class="input-field  form-group col-md-6">
                                     <input id="pincode" name="pincode" onChange={this.handleChange} value = {pincode} required type="text" class="validate" />
                                     <label for="pincode">Pincode</label>
+                                    <span className="helper-text"> {this.state.pincodeError} </span>
                                 </div>
 
                                 
@@ -128,6 +146,7 @@ export class Signup extends React.Component{
                                 <div class="input-field  form-group col-md-6">
                                     <input id="con_pass"  required type="password" class="validate" />
                                     <label for="con_pass">Confirm Password</label>
+                                    <span className="helper-text"> {this.state.passportError} </span>
                                 </div>
                             </div>
                             <div className="form-row">
@@ -135,11 +154,13 @@ export class Signup extends React.Component{
                                 <div class="input-field  form-group col-md-6">
                                     <input id="mobile" name="mobile" onChange={this.handleChange} value={mobile} required type="tel" class="validate" />
                                     <label for="mobile">Mobile</label>
+                                    <span className = "helper-text"> {this.state.mobileError} </span>
                                 </div>
 
                                 <div class="input-field  form-group col-md-6">
                                     <input id="gstin" name="gstin" onChange={this.handleChange} value={gstin} required type="text" class="validate" />
                                     <label for="gstin">GSTIN</label>
+                                    <span class="helper-text">{this.state.gstinError}</span>
                                 </div>
                             </div>
                             <div className="form-row justify-content-end">
