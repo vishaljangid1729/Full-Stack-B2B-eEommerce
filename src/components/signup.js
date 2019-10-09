@@ -16,11 +16,12 @@ export class Signup extends React.Component{
             state: '',
             city: '',
             email: '',
-            password: '', 
+            password: '',
+            con_pass: '' ,
             mobile: '',
             gstin: '',
             pincodeError: '',
-            passportError: '',
+            passwordError: '',
             mobileError: '',
             gstinError: ''
         }
@@ -38,6 +39,7 @@ export class Signup extends React.Component{
         else{
             this.setState({pincodeError: ""});
         }
+        // mobile validation
 
         if (this.state.mobile.match(/^[0-9]+$/) === null || this.state.mobile.length !== 10) {
             this.setState({
@@ -46,6 +48,14 @@ export class Signup extends React.Component{
         }
         else {
             this.setState({ mobileError: "" });
+        }
+
+        // password validation
+        if(this.state.password !== this.state.con_pass){
+            this.setState({passwordError: "Password don't match"});
+        }
+        else{
+            this.setState({passwordError: ""});
         }
 
     }
@@ -66,7 +76,7 @@ export class Signup extends React.Component{
     }
 
     render(){
-        const {entity, contact_name, category, country, pincode, state, city, email, password, mobile, gstin} = this.state;
+        const {entity, contact_name, category, country, pincode, state, city, email, password, con_pass, mobile, gstin} = this.state;
         return(
             <div className="container-fluid">
                 <div className="row justify-content-center">
@@ -153,9 +163,9 @@ export class Signup extends React.Component{
                                 </div>
 
                                 <div class="input-field  form-group col-md-6">
-                                    <input id="con_pass"  required type="password" class="validate" />
+                                    <input id="con_pass" type="password" name="con_pass" required class="validate" onChange={this.handleChange} value={con_pass} />
                                     <label for="con_pass">Confirm Password</label>
-                                    <span className="helper-text"> {this.state.passportError} </span>
+                                    <span className="helper-text"> {this.state.passwordError} </span>
                                 </div>
                             </div>
                             <div className="form-row">
