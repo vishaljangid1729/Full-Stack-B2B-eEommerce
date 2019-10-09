@@ -31,10 +31,12 @@ export class Signup extends React.Component{
     }
     validate(){
         // pincode validation
+        // console.log("this is checking");
         if (this.state.pincode.match(/^[0-9]+$/) === null || this.state.pincode.length !==6){
             this.setState({
                 pincodeError: "Invalid pincode"
             });
+            return false;
         }
         else{
             this.setState({pincodeError: ""});
@@ -45,6 +47,8 @@ export class Signup extends React.Component{
             this.setState({
                 mobileError: "Invalid mobile number"
             });
+            return false;
+
         }
         else {
             this.setState({ mobileError: "" });
@@ -53,10 +57,13 @@ export class Signup extends React.Component{
         // password validation
         if(this.state.password !== this.state.con_pass){
             this.setState({passwordError: "Password don't match"});
+            return false;
         }
         else{
             this.setState({passwordError: ""});
         }
+
+        return true;
 
     }
     handleChange(event){
@@ -65,11 +72,20 @@ export class Signup extends React.Component{
         })
     }
     handleSubmit(event){
-        this.validate();
+        // const validation = this.validate();
+        console.log("thisl is checking now");
         event.preventDefault();
         console.log(this.state);
-        axios.post("http://localhost:5000/signup", this.state)
-        .then(res => {console.log(res)});
+        if(this.validate()){
+            axios.post("http://localhost:5000/signup", this.state)
+                .then(res => { console.log(res) });
+                console.log("data send");
+        }
+        else{
+            console.log("error in form so, it can't be sned data");
+        }
+
+        
 
         
 
@@ -104,7 +120,7 @@ export class Signup extends React.Component{
                             </div>
                             <div className="form-row">
                                 <div class="input-field  form-group col-md-6">
-                                    <select name="category" required onChange={this.handleChange} value= {category} >
+                                    <select name="category"  onChange={this.handleChange} value= {category} >
                                         <option value="" disabled selected>Choose your option</option>
                                         <option value="1">Option 1</option>
                                         <option value="2">Option 2</option>
@@ -113,7 +129,7 @@ export class Signup extends React.Component{
                                     <label>Category</label>
                                 </div>
                                 <div className="input-field  form-group col-md-6">
-                                    <select name="country" required onChange={this.handleChange} value= {country} >
+                                    <select name="country"  onChange={this.handleChange} value= {country} >
                                         <option value="" disabled selected>Choose your option</option>
                                         <option value="1">Option 1</option>
                                         <option value="2">Option 2</option>
@@ -133,7 +149,7 @@ export class Signup extends React.Component{
 
                                 
                                 <div className="input-field  form-group col-md-6">
-                                    <select name="state" required onChange={this.handleChange} value={state} >
+                                    <select name="state"  onChange={this.handleChange} value={state} >
                                         <option value="" disabled selected>Choose your option</option>
                                         <option value="1">Option 1</option>
                                         <option value="2">Option 2</option>
@@ -183,7 +199,7 @@ export class Signup extends React.Component{
                                 </div>
                             </div>
                             <div className="form-row justify-content-end">
-                                <button class="btn waves-effect waves-light right blue white-text" type="submit" name="action">Submit
+                                <button class="btn  right blue white-text" type="submit" name="action">Submit
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>
