@@ -41,8 +41,7 @@ export class PendingOrders extends React.Component{
                                     </table>
                                     <div>
                                         
-                                    </div>
-                                    
+                                    </div>    
                                 </div>
                             </div>
                             <div className="row">
@@ -68,11 +67,8 @@ export class PendingOrders extends React.Component{
                                     </form>
                                 </div>
                             </div>
-                        </div>
-                        
-                        
-                    </div>
-                    
+                        </div>   
+                    </div>    
                 </div>
             </div>
         )

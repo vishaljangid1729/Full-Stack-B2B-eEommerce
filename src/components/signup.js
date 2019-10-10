@@ -4,6 +4,7 @@ import { Foot } from './footer';
 import axios from 'axios';
 
 
+
 export class Signup extends React.Component{
     constructor(props){
         super(props);
@@ -70,9 +71,6 @@ export class Signup extends React.Component{
         else{
             return false;
         }
-
-      
-
     }
     handleChange(event){
         this.setState({
@@ -99,6 +97,8 @@ export class Signup extends React.Component{
 
     render(){
         const {entity, contact_name, category, country, pincode, state, city, email, password, con_pass, mobile, gstin} = this.state;
+        const states_list = ['Andhra Pradesh', 'Arunachal Pradesh','Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Jammu and Kashmir', 'Jharkhand'
+        ,'Karnataka', 'Kerala', 'Madhya Pradesh', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Panjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'Wesh Bengal', 'Andaman and Nicobar', 'Chandigargh', 'Dadra N H', 'Delhi', 'Lakshadweep', 'Pondicherry' ]
         return(
             <div className="container-fluid">
                 <div className="row justify-content-center">
@@ -137,9 +137,7 @@ export class Signup extends React.Component{
                                 <div className="input-field  form-group col-md-6">
                                     <select name="country"  onChange={this.handleChange} value= {country} >
                                         <option value="" disabled selected>Choose your option</option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
+                                        <option value="1">India</option>
                                     </select>
                                     <label>Country</label>
 
@@ -157,9 +155,9 @@ export class Signup extends React.Component{
                                 <div className="input-field  form-group col-md-6">
                                     <select name="state"  onChange={this.handleChange} value={state} >
                                         <option value="" disabled selected>Choose your option</option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
+                                        {states_list.map((item, i) => 
+                                            <option value= {i}> {item}</option>
+                                            )}
                                     </select>
                                     <label>State</label>
 
