@@ -27,16 +27,14 @@ export class Signup extends React.Component{
         }
         
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.validate = this.validate.bind(this);
     }
-    validate(){
+    async validate(){
         // pincode validation
         // console.log("this is checking");
         if (this.state.pincode.match(/^[0-9]+$/) === null || this.state.pincode.length !==6){
-            this.setState({
-                pincodeError: "Invalid pincode"
-            });
-            return false;
+            this.setState({pincodeError: "Invalid pincode"});
         }
         else{
             this.setState({pincodeError: ""});
@@ -44,11 +42,7 @@ export class Signup extends React.Component{
         // mobile validation
 
         if (this.state.mobile.match(/^[0-9]+$/) === null || this.state.mobile.length !== 10) {
-            this.setState({
-                mobileError: "Invalid mobile number"
-            });
-            return false;
-
+            this.setState({mobileError: "Invalid mobile number"});
         }
         else {
             this.setState({ mobileError: "" });
@@ -56,14 +50,28 @@ export class Signup extends React.Component{
 
         // password validation
         if(this.state.password !== this.state.con_pass){
-            this.setState({passwordError: "Password don't match"});
-            return false;
+            this.setState({passwordError: "Password don't match"}); 
         }
         else{
             this.setState({passwordError: ""});
         }
 
-        return true;
+        // GSTIN validation
+        if(this.state.gstin.length !== 15){
+            this.setState({gstinError: "Invalid gstin"});
+        }
+        else{
+            this.setState({gstinError: ""});
+        }
+        if(this.state.gstinError === "" && this.state.pincodeError === "" && this.state.mobileError === "" && this.state.passwordError === ""){
+            console.log("error not none");
+            return true; 
+        }
+        else{
+            return false;
+        }
+
+      
 
     }
     handleChange(event){
@@ -71,23 +79,21 @@ export class Signup extends React.Component{
             [event.target.name]: event.target.value
         })
     }
-    handleSubmit(event){
+    async handleSubmit(event){
         // const validation = this.validate();
         console.log("thisl is checking now");
         event.preventDefault();
-        console.log(this.state);
-        if(this.validate()){
+        // console.log(this.state);
+        await this.validate();
+        if(await this.validate()){
+            console.log(this.validate());
             axios.post("http://localhost:5000/signup", this.state)
-                .then(res => { console.log(res) });
+                // .then(res => { console.log(res) });
                 console.log("data send");
         }
         else{
             console.log("error in form so, it can't be sned data");
         }
-
-        
-
-        
 
     }
 
