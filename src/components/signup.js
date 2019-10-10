@@ -27,7 +27,9 @@ export class Signup extends React.Component{
             passwordError: '',
             mobileError: '',
             gstinError: '',
-            sumbit: false
+            sumbit: false, 
+            errorMessage: 'vishal',
+            errorStatus: true
         }
         
         this.handleChange = this.handleChange.bind(this);
@@ -89,9 +91,17 @@ export class Signup extends React.Component{
             console.log(this.validate());
             axios.post("http://localhost:5000/signup", this.state)
             .then(res => {
+                console.log(res);
                 if(res.status === 200){
                     this.setState({sumbit: true});
                 }
+                else if(res.status === 204){
+                    this.setState({
+                        errorMessage: "Account already exist.",
+                        errorStatus: true
+                    });
+                }
+                
             });
             console.log("Data send");
             
@@ -120,9 +130,10 @@ export class Signup extends React.Component{
                     </div>
                     <div className="col-sm-6" id = "signup_box">
                         <div className="row justify-content-end">
-                            <a class="waves-effect waves-light btn modal-trigger blue white-text " href="#modal1">Login </a>
+                            <a class=" waves-light btn modal-trigger blue white-text " href="#modal1">Login </a>
                             <Signin></Signin>
                         </div>
+                        {this.state.errorStatus ? <h6>{this.state.errorMessage}</h6>: <p></p>}
                         
                         <form onSubmit = {this.handleSubmit}>
                             <div className="form-row">
