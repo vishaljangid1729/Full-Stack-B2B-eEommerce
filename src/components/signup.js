@@ -2,6 +2,8 @@ import React from 'react';
 import { Signin } from './signin';
 import { Foot } from './footer';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom'
+
 
 
 
@@ -24,7 +26,8 @@ export class Signup extends React.Component{
             pincodeError: '',
             passwordError: '',
             mobileError: '',
-            gstinError: ''
+            gstinError: '',
+            sumbit: false
         }
         
         this.handleChange = this.handleChange.bind(this);
@@ -65,7 +68,6 @@ export class Signup extends React.Component{
             this.setState({gstinError: ""});
         }
         if(this.state.gstinError === "" && this.state.pincodeError === "" && this.state.mobileError === "" && this.state.passwordError === ""){
-            console.log("error not none");
             return true; 
         }
         else{
@@ -86,8 +88,14 @@ export class Signup extends React.Component{
         if(await this.validate()){
             console.log(this.validate());
             axios.post("http://localhost:5000/signup", this.state)
-                // .then(res => { console.log(res) });
-                console.log("data send");
+            .then(res => {
+                if(res.status === 200){
+                    this.setState({sumbit: true});
+                }
+            });
+            console.log("Data send");
+            
+
         }
         else{
             console.log("error in form so, it can't be sned data");
@@ -99,6 +107,11 @@ export class Signup extends React.Component{
         const {entity, contact_name, category, country, pincode, state, city, email, password, con_pass, mobile, gstin} = this.state;
         const states_list = ['Andhra Pradesh', 'Arunachal Pradesh','Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Jammu and Kashmir', 'Jharkhand'
         ,'Karnataka', 'Kerala', 'Madhya Pradesh', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Panjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'Wesh Bengal', 'Andaman and Nicobar', 'Chandigargh', 'Dadra N H', 'Delhi', 'Lakshadweep', 'Pondicherry' ]
+
+        // Redirect after success
+        if(this.state.sumbit){
+            return <Redirect to={{ pathname: "/company_detail_first"}} ></Redirect>
+        }
         return(
             <div className="container-fluid">
                 <div className="row justify-content-center">
