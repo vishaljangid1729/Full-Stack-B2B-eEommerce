@@ -101,6 +101,12 @@ export class Signup extends React.Component{
                         errorStatus: true
                     });
                 }
+                else{
+                    this.setState({
+                        errorMessage: "Try after some time.", 
+                        errorStatus: true
+                    })
+                }
                 
             });
             console.log("Data send");
