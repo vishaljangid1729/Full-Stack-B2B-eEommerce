@@ -1,6 +1,7 @@
 import React from 'react';
 import { Foot } from './footer';
 import { Topform } from './form_top';
+import axios from 'axios';
 
 
 
@@ -35,6 +36,13 @@ export class First_comp extends React.Component{
         event.preventDefault();
        
         console.log(this.state);
+    }
+    componentDidMount(){
+        axios.get('http://localhost:5000/comp_first')
+        .then(res => {
+            console.log(res);
+        })
+
     }
     render(){
         const {entity, trade, contact_name, gstin, phone, email, alt_no, city, pincode, country, state, nature_business, brands} = this.state;
@@ -94,7 +102,6 @@ export class First_comp extends React.Component{
                                         <input id="pincode" value = {pincode} onChange = {this.handleChange} name = "pincode" required type="text" class="validate" />
                                         <label for="pincode">Pincode</label>
                                     </div>
-
                                 </div>
                                 <div className="form-row justify-content-around">
                                     <div class="input-field  form-group col-md-3">
@@ -123,25 +130,20 @@ export class First_comp extends React.Component{
                                             <option value="3">Option 3</option>
                                         </select>
                                         <label>Nature of Business</label>
-                                    </div>
-                                     
+                                    </div>     
                                 </div>
                                 <div className="form-row justify-content-around">
                                     
                                     <div class="input-field  form-group col-md-8">
                                         <input id="brands" type="text" value = {brands} onChange = {this.handleChange} name = "brands" required class="validate" />
                                         <label for="brands">Brands you are authorised to sell</label>
-                                    </div>
-                                    
-                                    
+                                    </div> 
                                 </div>
                                 <div className="form-row justify-content-end" id = "com_footer">
                                     <button class="btn waves-effect waves-light right blue white-text" type="submit" >Save & Continue
                                     <i class="material-icons right">send</i>
                                     </button>
                                 </div>
-                                
-                                
                             </form>
                         </div>
                     </div>
