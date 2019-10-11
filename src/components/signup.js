@@ -131,7 +131,9 @@ export class Signup extends React.Component{
                 name: this.state.contact_name,
                 gstin: this.state.gstin,
                 email: this.state.email,
-                phone: this.state.mobile
+                phone: this.state.mobile,
+                city: this.state.city,
+                pincode: this.state.pincode
             }}}  ></Redirect>
         }
         return(

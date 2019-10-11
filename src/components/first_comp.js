@@ -9,15 +9,15 @@ export class First_comp extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            entity: '',
+            entity: this.props.location.state.entity,
             trade: '',
-            contact_name: '',
-            gstin: '',
-            phone: '',
-            email: '',
+            contact_name: this.props.location.state.name,
+            gstin: this.props.location.state.gstin,
+            phone: this.props.location.state.phone,
+            email: this.props.location.state.email,
             alt_no: '',
-            city: '',
-            pincode: '',
+            city: this.props.location.state.city,
+            pincode: this.props.location.state.pincode,
             country: '',
             state: '',
             nature_business: [],
@@ -61,12 +61,12 @@ export class First_comp extends React.Component{
 
                                     <div class="input-field  form-group col-md-3">
                                         <input id="entity" name = "entity" value = {entity} required onChange = {this.handleChange} type="text" class="validate" />
-                                        <label for="entity">Legal Entity Name</label>
+                                        <label for="entity" className = "active">Legal Entity Name</label>
                                     </div>
 
                                     <div class="input-field  form-group col-md-3">
                                         <input id="trade" value = {trade} onChange = {this.handleChange} name = "trade" required type="text" class="validate" />
-                                        <label for="trade">Trade Name</label>
+                                        <label for="trade" className = "active keyboard-foucsed">Trade Name</label>
                                     </div>
                                     <div class="input-field  form-group col-md-3">
                                         <input id="contact" value = {contact_name} onChange = {this.handleChange} name = "contact_name" required type="text" class="validate" />
