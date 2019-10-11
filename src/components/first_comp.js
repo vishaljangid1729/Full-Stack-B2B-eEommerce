@@ -44,8 +44,10 @@ export class First_comp extends React.Component{
         })
 
     }
+
     render(){
         const {entity, trade, contact_name, gstin, phone, email, alt_no, city, pincode, country, state, nature_business, brands} = this.state;
+        console.log(this.props.location.state);
         return(
             <div>
                 <Topform name = "Business Detail" complete = "25"></Topform>

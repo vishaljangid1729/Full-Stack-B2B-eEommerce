@@ -126,7 +126,13 @@ export class Signup extends React.Component{
 
         // Redirect after success
         if(this.state.sumbit){
-            return <Redirect to={{ pathname: "/company_detail_first"}} ></Redirect>
+            return <Redirect to={{ pathname: "/company_detail_first", state: {
+                entity: this.state.entity,
+                name: this.state.contact_name,
+                gstin: this.state.gstin,
+                email: this.state.email,
+                phone: this.state.mobile
+            }}}  ></Redirect>
         }
         return(
             <div className="container-fluid">
