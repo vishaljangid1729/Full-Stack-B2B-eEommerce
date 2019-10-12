@@ -8,6 +8,7 @@ import axios from 'axios';
 export class First_comp extends React.Component{
     constructor(props){
         super(props);
+        // this.props.location.state.ABC from signup form state
         this.state = {
             entity: this.props.location.state.entity,
             trade: '',
